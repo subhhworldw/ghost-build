@@ -1,0 +1,106 @@
+:root {
+  color-scheme: dark;
+  --bg: #000;
+  --utility-key: #a5a5a5;
+  --utility-key-active: #d9d9d9;
+  --digit-key: #333;
+  --digit-key-active: #737373;
+  --operator-key: #ff9f0a;
+  --operator-key-active: #fbc78c;
+  --text-dark: #000;
+  --text-light: #fff;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at top, #1d1d1d 0%, #000 50%);
+}
+
+.app-shell {
+  width: min(92vw, 380px);
+}
+
+.calculator {
+  background: var(--bg);
+  border-radius: 36px;
+  padding: 28px 18px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+.display {
+  display: block;
+  width: 100%;
+  min-height: 96px;
+  text-align: right;
+  color: var(--text-light);
+  font-size: clamp(2.5rem, 9vw, 4.2rem);
+  font-weight: 300;
+  line-height: 1;
+  padding: 16px 10px 12px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.key {
+  border: 0;
+  border-radius: 999px;
+  height: 72px;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 90ms ease, filter 120ms ease;
+  user-select: none;
+}
+
+.key:active {
+  transform: scale(0.97);
+}
+
+.utility {
+  background: var(--utility-key);
+  color: var(--text-dark);
+}
+
+.utility:active {
+  background: var(--utility-key-active);
+}
+
+.digit {
+  background: var(--digit-key);
+  color: var(--text-light);
+}
+
+.digit:active {
+  background: var(--digit-key-active);
+}
+
+.operator {
+  background: var(--operator-key);
+  color: var(--text-light);
+}
+
+.operator:active,
+.operator.active {
+  background: var(--operator-key-active);
+  color: var(--operator-key);
+}
+
+.zero {
+  grid-column: span 2;
+  text-align: left;
+  padding-left: 28px;
+}
